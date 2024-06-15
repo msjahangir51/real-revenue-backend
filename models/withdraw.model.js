@@ -12,7 +12,19 @@ const WithdrawSchema = mongoose.Schema({
     withdraw:{
         type:Number,
         required: true
-    }
+    },
+    email:{
+        type:String,
+        required: true
+    },
+    username:{
+        type:Number,
+        required: true
+    },
+    number:{
+        type:Number,
+        required: true
+    },
 })
 
 

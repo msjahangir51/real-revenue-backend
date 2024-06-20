@@ -10,10 +10,16 @@ const userRegister = async(req,res)=>{
         const {username,email,firstname,lastname,gender,password,userfarcode,wonrefarcode} = req.body;
         const user = await users.findOne({username: username});
         
-        if(user) return res.status(409).send("true");
+        if(user) return res.status(409).send({
+            success: true,
+            message: "username is already axists"
+        });
         const emailcheck = await users.findOne({email: email});
     
-        if(emailcheck) return res.status(409).send("true");
+        if(emailcheck) return res.status(409).send({
+            success: true,
+            message : "email is already axists"
+        });
     
         bcrypt.hash(password, 10, async(err,hash)=>{
             const newuser = new users({

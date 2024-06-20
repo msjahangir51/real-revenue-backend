@@ -5,7 +5,7 @@ const withdrawController =async (req,res)=>{
     const {userid,income,withdraw,email,username,number} = req.body;
 
 
-    await incomeModel.updateOne({userid: userid}, {income: income - 1000, withdraw:withdraw+1000}).then(async()=>{
+    await incomeModel.updateOne({userid: userid}, {income: income - 1000, withdraw:withdraw + 1000}).then(async()=>{
         const newWithdraw = new withdrawModel( {
             userid,
             income,
